@@ -1,31 +1,37 @@
-const numero = document.getElementById('numero')
-const resultado = document.getElementById('res')
-const gerarBotao = document.getElementById('gerarTabuada');
+document.addEventListener('DOMContentLoaded', function() {
+    const numero = document.getElementById('numero');
+    const resultado = document.getElementById('res');
+    const gerarBotao = document.getElementById('gerarTabuada');
+    const limparBotao = document.getElementById('limpar');
 
-function gerarTabuada() {
+    gerarBotao.addEventListener('click', gerarTabuada);
+    limparBotao.addEventListener('click', limpar);
 
-    if (numero.value.length == 0) {
-        alert("Digite um Número")
-        numero.value = ''
+    function gerarTabuada(event) {
+        event.preventDefault(); // Prevenir o comportamento padrão do formulário, se houver
 
-    } else if (numero.value <= 0) {
-        alert("Digite um número maior que 0")
-        numero.value = ''
-
-    } else {
-        for (let i = 1; i <= 10; i++) {
-            resultado.innerHTML += `${numero.value} X ${i} = <strong>${numero.value * i}</strong><br><br>`
+        if (numero.value.length == 0) {
+            alert("Digite um Número");
+            numero.value = '';
+        } else if (numero.value <= 0) {
+            alert("Digite um número maior que 0");
+            numero.value = '';
+        } else {
+            resultado.innerHTML = ''; // Limpar resultados anteriores
+            for (let i = 1; i <= 10; i++) {
+                resultado.innerHTML += `${numero.value} X ${i} = <strong>${numero.value * i}</strong><br><br>`;
+            }
+            gerarBotao.style.display = 'none';
+            numero.disabled = true; // Desabilitar o input
         }
-
-        gerarBotao.style.display = 'none'
-        numero.style.background = 'white'
-        numero.disabled = true
     }
-}
 
-function limpar() {
-    gerarBotao.style.display = 'block'
-    numero.value = ''
-    resultado.innerHTML = ''
-    numero.disabled = false
-}
+    function limpar(event) {
+        event.preventDefault(); // Prevenir o comportamento padrão do formulário, se houver
+
+        gerarBotao.style.display = 'block';
+        numero.value = '';
+        resultado.innerHTML = '';
+        numero.disabled = false; // Habilitar o input novamente
+    }
+})
