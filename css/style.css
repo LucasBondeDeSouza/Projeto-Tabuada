@@ -58,6 +58,13 @@ input:hover {
     background-color: rgb(240, 242, 245);
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
 .botao {
     display: flex;
     gap: 10px;

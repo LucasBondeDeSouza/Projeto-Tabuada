@@ -1,7 +1,6 @@
 const numero = document.getElementById('numero')
 const resultado = document.getElementById('res')
 const gerarBotao = document.getElementById('gerarTabuada');
-const limparBotao = document.getElementById('limpar');
 
 function gerarTabuada() {
 
@@ -19,7 +18,8 @@ function gerarTabuada() {
         }
 
         gerarBotao.style.display = 'none'
-        limparBotao.style.display = 'block'
+        numero.style.background = 'white'
+        numero.disabled = true
     }
 }
 
@@ -27,4 +27,5 @@ function limpar() {
     gerarBotao.style.display = 'block'
     numero.value = ''
     resultado.innerHTML = ''
+    numero.disabled = false
 }
