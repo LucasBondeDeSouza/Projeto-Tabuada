@@ -15,7 +15,7 @@ function gerarTabuada() {
     } else if (numero.value.length > 10) {
         alert("Digite um Número com no máximo 10 digitos")
         numero.value = ''
-        
+
     } else {
         for (let i = 1; i <= 10; i++) {
             resultado.innerHTML += `${numero.value} X ${i} = <strong>${numero.value * i}</strong><br><br>`
