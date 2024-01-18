@@ -1,6 +1,7 @@
 const numero = document.getElementById('numero')
 const resultado = document.getElementById('res')
 const gerarBotao = document.getElementById('gerarTabuada');
+const labelNumero = document.querySelector('label');
 
 function gerarTabuada() {
 
@@ -17,6 +18,7 @@ function gerarTabuada() {
         numero.value = ''
 
     } else {
+        labelNumero.style.display = 'none';
         for (let i = 1; i <= 10; i++) {
             resultado.innerHTML += `${numero.value} X ${i} = <strong>${numero.value * i}</strong><br><br>`
         }
@@ -28,6 +30,7 @@ function gerarTabuada() {
 }
 
 function limpar() {
+    labelNumero.style.display = 'block';
     gerarBotao.style.display = 'block'
     numero.value = ''
     resultado.innerHTML = ''
